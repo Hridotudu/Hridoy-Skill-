@@ -1,168 +1,105 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ads Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* ===== Navbar ===== */
-    .navbar {
-      background-color: #1e88e5;
-      color: white;
-      padding: 18px 20px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      animation: slideDown 0.5s ease-in-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ===== Ads Section ===== */
-    .main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .ad-box {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin: 20px auto;
-      padding: 20px;
-      text-align: center;
-      max-width: 500px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .ad-title {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .ad-button {
-      background-color: #43a047;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s;
-    }
-
-    .ad-button:hover {
-      background-color: #2e7d32;
-    }
-
-    /* ===== Bottom Nav ===== */
-    .bottom-nav {
-      display: flex;
-      justify-content: space-around;
-      background-color: #ffffff;
-      padding: 12px 0;
-      border-top: 1px solid #ccc;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-    }
-
-    .bottom-nav button {
-      background: none;
-      border: none;
-      color: #555;
-      font-size: 16px;
-      cursor: pointer;
-      padding: 8px 10px;
-      flex: 1;
-      transition: color 0.3s;
-    }
-
-    .bottom-nav button:hover {
-      color: #1e88e5;
-    }
-
-    .bottom-nav button:active {
-      transform: scale(0.96);
-    }
-
-    /* Icon fallback */
-    .icon {
-      display: block;
-      font-size: 22px;
-    }
-
-  </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff; /* White background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #000000; /* Black text */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #02a7ff; /* Black border */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+        .user-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-card {
+            width: 100%;
+            text-align: center;
+        }
+        .info-card p {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-
-  <!-- ===== Top Menu Bar ===== -->
-  <div class="navbar">
-    📲 Ads Viewer Panel
-  </div>
-
-  <!-- ===== Main Ads Section ===== -->
-  <div class="main">
-
-    <!-- Monetag Ad -->
-    <div class="ad-box">
-      <div class="ad-title">Monetag বিজ্ঞাপন</div>
-      <script async type="text/javascript" data-cfasync="false"
-              src="https://www.monetag.com/tag.js"
-              data-zone="9476147"></script>
+    <div class="container" id="profile-container">
+        <div class="profile-pic" id="profile-pic" style="background-image: url('https://via.placeholder.com/100');"></div>
+        <div class="user-name" id="user-name">User Name</div>
+        <div class="info-card" id="info-card">
+            <p id="balance">Balance: Loading...</p>
+            <p id="premium-status">Premium: No</p>
+        </div>
     </div>
+</body>
+</html>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="<?php echo '/js/BV2s3xkm.min.js'; ?>"></script>
+</body>
+</html>
 
-    <!-- Adsterra Popunder -->
-    <div class="ad-box">
-      <div class="ad-title">Adsterra পপলিংক</div>
-      <p>বিজ্ঞাপন দেখতে নিচে ক্লিক করুন:</p>
-      <button class="ad-button"
-              onclick="window.open('https://www.profitableratecpm.com/w4is34uz?key=b8910134612369c23f9602a3a6469bb0', '_blank')">
-        বিজ্ঞাপন দেখুন
-      </button>
-    </div>
 
-  </div>
+    
+<!-- Navigation Bar -->
+<nav style="display: flex; justify-content: space-around; align-items: center; background: #ffffff; border: 1px solid #02a7ff; border-radius: 20px; padding: 10px 0; width: 100%; max-width: 400px; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
+    <a href="/" style="display: flex; flex-direction: column; align-items: center; color: #000000; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s;">
+        <i class="fas fa-home" style="font-size: 24px; margin-bottom: 5px;"></i>
+        Home
+    </a>
+    <a href="/ads" style="display: flex; flex-direction: column; align-items: center; color: #000000; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s;">
+        <i class="fas fa-wallet" style="font-size: 24px; margin-bottom: 5px;"></i>
+        Earn
+    </a>
+    <a href="/user/task.php" style="display: flex; flex-direction: column; align-items: center; color: #000000; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s;">
+        <i class="fas fa-tasks" style="font-size: 24px; margin-bottom: 5px;"></i>
+        Tasks
+    </a>
+    <a href="/withdraw" style="display: flex; flex-direction: column; align-items: center; color: #000000; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s;">
+        <i class="fas fa-coins" style="font-size: 24px; margin-bottom: 5px;"></i>
+        Wallet
+    </a>
+</nav>
 
-  <!-- ===== Bottom Navigation Buttons ===== -->
-  <div class="bottom-nav">
-    <button onclick="alert('হোম পেজে যাবেন')">
-      <span class="icon">🏠</span>হোম
-    </button>
-    <button onclick="alert('নতুন পোস্ট')">
-      <span class="icon">📰</span>নতুন
-    </button>
-    <button onclick="alert('যোগাযোগ করুন')">
-      <span class="icon">📞</span>যোগাযোগ
-    </button>
-    <button onclick="alert('প্রোফাইল সেটিংস')">
-      <span class="icon">⚙️</span>প্রোফাইল
-    </button>
-  </div>
+
+
+
+
+
+<script>
+  console.clear = function() {};
+  console.error = function() {};
+  console.warn = function() {};
+</script>
+
 
 </body>
 </html>
