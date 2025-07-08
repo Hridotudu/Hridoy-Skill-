@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Monetag Bot by Hridoy Skill</title>
   <style>
+    /* [same style as before, unchanged] */
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;}
     body {
       background: #f0f4f8; color: #222;
       min-height: 100vh; display: flex; flex-direction: column;
       justify-content: flex-start; align-items: center; padding-bottom: 70px;
     }
-    .app, #auth { max-width: 480px; width: 100%; background: #fff; border-radius: 20px;
+    .app {
+      max-width: 480px; width: 100%; background: #fff; border-radius: 20px;
       overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); margin: 20px auto;
     }
     header {
@@ -50,83 +52,73 @@
     }
     nav button.active, nav button:hover { color: #0078ff; }
     .ads-container { margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 10px; }
-    input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
   </style>
-  <script src="//libtl.com/sdk.js" data-zone="9476147" data-sdk="show_9476147"></script>
+
+  <!-- ✅ Monetag Interstitial Ad Script -->
+  <script data-cfasync="false" type="text/javascript" src="//libtl.com/tag.min.js" data-zone="9476147"></script>
+
 </head>
 <body>
+  <div class="app">
+    <header>💸 Monetag Bot<br /><small>Developer: Hridoy Skill</small></header>
 
-<!-- LOGIN SECTION -->
-<section id="auth" class="active">
-  <div class="card">
-    <h3>🔐 Login</h3>
-    <input type="text" id="username" placeholder="Enter your name">
-    <button class="btn" onclick="login()">🔓 Login</button>
-  </div>
-</section>
-
-<!-- MAIN APP -->
-<div class="app" style="display: none;">
-  <header>💸 Monetag Bot<br /><small>Developer: Hridoy Skill</small></header>
-
-  <section id="home" class="active">
-    <div class="card">
-      <h3>🙋 User Info</h3>
-      <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
-      <p><strong>Email:</strong> hridoy@example.com</p>
-    </div>
-    <div class="card">
-      <h3>📊 Statistics</h3>
-      <p>💰 <strong>Income:</strong> <span class="income">$0.000</span></p>
-      <p>✅ <strong>Tasks Completed:</strong> <span class="tasks">0</span></p>
-    </div>
-  </section>
-
-  <section id="profile">
-    <div class="card">
-      <h3>👤 Profile</h3>
-      <p>Name: <span id="profileName">...</span></p>
-      <p>Balance: <span class="income">$0.000</span></p>
-      <p>Tasks Done: <span class="tasks">0</span></p>
-      <button class="btn" style="background:red;" onclick="logout()">🚪 Logout</button>
-    </div>
-  </section>
-
-  <section id="earn">
-    <div class="card">
-      <h3>📺 Watch Ads</h3>
-      <button class="btn" onclick="showAds()" id="watchAdBtn">▶️ Watch Monetag Ads & Earn $0.005</button>
-      <div id="adContainer" class="ads-container" style="display:none;">
-        <div id="show_9476147"></div>
-        <button class="btn" id="confirmAdBtn" disabled onclick="addBalance()">⏳ Wait 15 sec to earn</button>
-        <p id="timerText" style="margin-top:10px; font-weight:bold;"></p>
+    <section id="home" class="active">
+      <div class="card">
+        <h3>🙋 User Info</h3>
+        <p><strong>Name:</strong> Hridoy Skill</p>
+        <p><strong>Email:</strong> hridoy@example.com</p>
       </div>
-    </div>
+      <div class="card">
+        <h3>📊 Statistics</h3>
+        <p>💰 <strong>Income:</strong> <span class="income">$0.000</span></p>
+        <p>✅ <strong>Tasks Completed:</strong> <span class="tasks">0</span></p>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>📝 Complete Tasks</h3>
-      <button class="btn" onclick="completeTask('https://t.me/Hridoy_Skill')">📢 Join Telegram</button>
-      <button class="btn" onclick="completeTask('https://youtube.com/@hridoy_skill_0.69?si=GfXezqZBlqsXYWVc')">▶️ Subscribe YouTube</button>
-    </div>
-  </section>
+    <section id="profile">
+      <div class="card">
+        <h3>👤 Profile</h3>
+        <p>Name: Hridoy Skill</p>
+        <p>Balance: <span class="income">$0.000</span></p>
+        <p>Tasks Done: <span class="tasks">0</span></p>
+      </div>
+    </section>
 
-  <section id="support">
-    <div class="card">
-      <h3>📞 Support</h3>
-      <button class="btn" onclick="window.location='https://t.me/your_admin'">💬 Contact Admin</button>
-    </div>
-  </section>
+    <section id="earn">
+      <div class="card">
+        <h3>📺 Watch Ads</h3>
+        <button class="btn" onclick="showAds()" id="watchAdBtn">▶️ Watch Monetag Ads & Earn $0.005</button>
+        <div id="adContainer" class="ads-container" style="display:none;">
+          <button class="btn" id="confirmAdBtn" disabled onclick="addBalance()">⏳ Wait 15 sec to earn</button>
+          <p id="timerText" style="margin-top:10px; font-weight:bold;"></p>
+        </div>
+      </div>
 
-  <section id="rules">
-    <div class="card">
-      <h3>📜 Rules</h3>
-      <ul>
-        <li>No multiple accounts</li>
-        <li>Real task completion only</li>
-        <li>Minimum withdraw $5.00</li>
-      </ul>
-    </div>
-  </section>
+      <div class="card">
+        <h3>📝 Complete Tasks</h3>
+        <button class="btn" onclick="completeTask('https://t.me/Hridoy_Skill')">📢 Join Telegram</button>
+        <button class="btn" onclick="completeTask('https://youtube.com/@hridoy_skill_0.69?si=GfXezqZBlqsXYWVc')">▶️ Subscribe YouTube</button>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="card">
+        <h3>📞 Support</h3>
+        <button class="btn" onclick="window.location='https://t.me/your_admin'">💬 Contact Admin</button>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="card">
+        <h3>📜 Rules</h3>
+        <ul>
+          <li>No multiple accounts</li>
+          <li>Real task completion only</li>
+          <li>Minimum withdraw $5.00</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 
   <nav>
     <button class="active" onclick="switchTab('home', this)">🏠</button>
@@ -135,96 +127,70 @@
     <button onclick="switchTab('support', this)">📞</button>
     <button onclick="switchTab('rules', this)">📜</button>
   </nav>
-</div>
 
-<script>
-  let balance = 0;
-  let tasks = 0;
-  let timerInterval;
+  <script>
+    let balance = 0;
+    let tasks = 0;
+    let timerInterval;
 
-  function switchTab(id, el) {
-    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-    el.classList.add('active');
-  }
+    function switchTab(id, el) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+    }
 
-  function showAds() {
-    document.getElementById('adContainer').style.display = 'block';
-    document.getElementById('watchAdBtn').disabled = true;
-    startAdTimer();
-  }
+    function showAds() {
+      // ✅ Show Monetag Interstitial ad
+      window._ltq = window._ltq || [];
+      window._ltq.push({event: 'openInterstitial'});
 
-  function startAdTimer() {
-    let seconds = 15;
-    const timerText = document.getElementById('timerText');
-    const confirmBtn = document.getElementById('confirmAdBtn');
-    confirmBtn.disabled = true;
-    confirmBtn.innerText = `⏳ Wait ${seconds} sec to earn`;
+      document.getElementById('adContainer').style.display = 'block';
+      document.getElementById('watchAdBtn').disabled = true;
+      startAdTimer();
+    }
 
-    timerInterval = setInterval(() => {
-      seconds--;
+    function startAdTimer() {
+      let seconds = 15;
+      const timerText = document.getElementById('timerText');
+      const confirmBtn = document.getElementById('confirmAdBtn');
+      confirmBtn.disabled = true;
       confirmBtn.innerText = `⏳ Wait ${seconds} sec to earn`;
-      timerText.innerText = `⏱️ ${seconds} seconds left...`;
 
-      if (seconds <= 0) {
-        clearInterval(timerInterval);
-        confirmBtn.disabled = false;
-        confirmBtn.innerText = "✅ Claim $0.005";
-        timerText.innerText = "Ad watched successfully!";
-      }
-    }, 1000);
-  }
+      timerInterval = setInterval(() => {
+        seconds--;
+        confirmBtn.innerText = `⏳ Wait ${seconds} sec to earn`;
+        timerText.innerText = `⏱️ ${seconds} seconds left...`;
 
-  function addBalance() {
-    balance += 0.005;
-    tasks++;
-    updateStats();
-    document.getElementById('watchAdBtn').disabled = false;
-    document.getElementById('adContainer').style.display = 'none';
-    alert("$0.005 added to your balance!");
-  }
-
-  function completeTask(link) {
-    window.open(link, '_blank');
-    balance += 0.005;
-    tasks++;
-    updateStats();
-  }
-
-  function updateStats() {
-    document.querySelectorAll('.income').forEach(el => el.innerText = `$${balance.toFixed(3)}`);
-    document.querySelectorAll('.tasks').forEach(el => el.innerText = tasks);
-  }
-
-  function login() {
-    const name = document.getElementById('username').value.trim();
-    if (name) {
-      localStorage.setItem('username', name);
-      location.reload();
-    } else {
-      alert("Please enter your name");
+        if (seconds <= 0) {
+          clearInterval(timerInterval);
+          confirmBtn.disabled = false;
+          confirmBtn.innerText = "✅ Claim $0.005";
+          timerText.innerText = "Ad watched successfully!";
+        }
+      }, 1000);
     }
-  }
 
-  function logout() {
-    localStorage.removeItem('username');
-    location.reload();
-  }
-
-  window.onload = () => {
-    const user = localStorage.getItem('username');
-    if (user) {
-      document.getElementById('auth').style.display = 'none';
-      document.querySelector('.app').style.display = 'block';
-      document.getElementById('userName').innerText = user;
-      document.getElementById('profileName').innerText = user;
-    } else {
-      document.getElementById('auth').style.display = 'block';
-      document.querySelector('.app').style.display = 'none';
+    function addBalance() {
+      balance += 0.005;
+      tasks++;
+      updateStats();
+      document.getElementById('watchAdBtn').disabled = false;
+      document.getElementById('adContainer').style.display = 'none';
+      alert("$0.005 added to your balance!");
     }
-  };
-</script>
 
+    function completeTask(link) {
+      window.open(link, '_blank');
+      balance += 0.005;
+      tasks++;
+      updateStats();
+    }
+
+    function updateStats() {
+      document.querySelectorAll('.income').forEach(el => el.innerText = `$${balance.toFixed(3)}`);
+      document.querySelectorAll('.tasks').forEach(el => el.innerText = tasks);
+    }
+  </script>
 </body>
 </html>
