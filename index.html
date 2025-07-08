@@ -2,54 +2,165 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <title>Real Ads Viewer</title>
+  <title>Ads Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background: #f0f0f0;
-      text-align: center;
-      font-family: sans-serif;
-      padding: 40px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .ad-section {
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      background-color: #1e88e5;
+      color: white;
+      padding: 18px 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      animation: slideDown 0.5s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ===== Ads Section ===== */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .ad-box {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin: 20px auto;
       padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 400px;
+      text-align: center;
+      max-width: 500px;
+      animation: fadeIn 0.5s ease-in-out;
     }
-    h2 {
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .ad-title {
+      font-size: 20px;
       color: #333;
+      margin-bottom: 15px;
     }
-    .click-btn {
-      background: #007bff;
+
+    .ad-button {
+      background-color: #43a047;
       color: white;
-      padding: 10px 20px;
       border: none;
-      border-radius: 5px;
-      margin-top: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
     }
+
+    .ad-button:hover {
+      background-color: #2e7d32;
+    }
+
+    /* ===== Bottom Nav ===== */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ffffff;
+      padding: 12px 0;
+      border-top: 1px solid #ccc;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    .bottom-nav button {
+      background: none;
+      border: none;
+      color: #555;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 8px 10px;
+      flex: 1;
+      transition: color 0.3s;
+    }
+
+    .bottom-nav button:hover {
+      color: #1e88e5;
+    }
+
+    .bottom-nav button:active {
+      transform: scale(0.96);
+    }
+
+    /* Icon fallback */
+    .icon {
+      display: block;
+      font-size: 22px;
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>👁️ Real Ad Viewer</h1>
-
-  <!-- Monetag বিজ্ঞাপন -->
-  <div class="ad-section">
-    <h2>Monetag Ads</h2>
-    <script async type="text/javascript" data-cfasync="false" src="https://www.monetag.com/tag.js" data-zone="9476147"></script>
+  <!-- ===== Top Menu Bar ===== -->
+  <div class="navbar">
+    📲 Ads Viewer Panel
   </div>
 
-  <!-- Adsterra পপলিংক বিজ্ঞাপন -->
-  <div class="ad-section">
-    <h2>Adsterra Popunder</h2>
-    <p>এখানে ক্লিক করলে একটি নতুন ট্যাবে বিজ্ঞাপন খুলবে</p>
-    <button class="click-btn" onclick="window.open('https://www.profitableratecpm.com/w4is34uz?key=b8910134612369c23f9602a3a6469bb0', '_blank')">
-      বিজ্ঞাপন দেখুন
+  <!-- ===== Main Ads Section ===== -->
+  <div class="main">
+
+    <!-- Monetag Ad -->
+    <div class="ad-box">
+      <div class="ad-title">Monetag বিজ্ঞাপন</div>
+      <script async type="text/javascript" data-cfasync="false"
+              src="https://www.monetag.com/tag.js"
+              data-zone="9476147"></script>
+    </div>
+
+    <!-- Adsterra Popunder -->
+    <div class="ad-box">
+      <div class="ad-title">Adsterra পপলিংক</div>
+      <p>বিজ্ঞাপন দেখতে নিচে ক্লিক করুন:</p>
+      <button class="ad-button"
+              onclick="window.open('https://www.profitableratecpm.com/w4is34uz?key=b8910134612369c23f9602a3a6469bb0', '_blank')">
+        বিজ্ঞাপন দেখুন
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ===== Bottom Navigation Buttons ===== -->
+  <div class="bottom-nav">
+    <button onclick="alert('হোম পেজে যাবেন')">
+      <span class="icon">🏠</span>হোম
+    </button>
+    <button onclick="alert('নতুন পোস্ট')">
+      <span class="icon">📰</span>নতুন
+    </button>
+    <button onclick="alert('যোগাযোগ করুন')">
+      <span class="icon">📞</span>যোগাযোগ
+    </button>
+    <button onclick="alert('প্রোফাইল সেটিংস')">
+      <span class="icon">⚙️</span>প্রোফাইল
     </button>
   </div>
 
